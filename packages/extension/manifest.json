@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "WebClaude Local Agent",
+  "version": "0.2.0",
+  "description": "Local workspace code agent bridge for Claude Web",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://claude.ai/*",
+    "http://127.0.0.1:43127/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://claude.ai/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "WebClaude Local Agent"
+  }
+}

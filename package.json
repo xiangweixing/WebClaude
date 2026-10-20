@@ -1,0 +1,21 @@
+{
+  "name": "webclaude",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Local workspace code agent for Claude Web using browser extension and local loopback service",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "node packages/extension/build.mjs && node packages/desktop/build.mjs && node packages/cli/build.mjs",
+    "build:extension": "node packages/extension/build.mjs",
+    "build:desktop": "node packages/desktop/build.mjs",
+    "build:cli": "node packages/cli/build.mjs",
+    "test": "npx --yes tsx --test test/**/*.test.ts",
+    "cli": "node packages/cli/dist/index.js",
+    "desktop": "npx --yes electron packages/desktop"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4"
+  }
+}

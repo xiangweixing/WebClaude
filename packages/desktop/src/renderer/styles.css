@@ -1,0 +1,359 @@
+:root {
+  --bg-main: #090d16;
+  --bg-card: rgba(22, 30, 49, 0.75);
+  --bg-card-hover: rgba(30, 41, 67, 0.85);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(99, 102, 241, 0.4);
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --accent-primary: #6366f1;
+  --accent-hover: #4f46e5;
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+  --accent-amber: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+  gap: 16px;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+}
+
+.brand-text h1 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.brand-text .subtitle {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-indicator .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.status-indicator.running {
+  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.1);
+  color: #34d399;
+}
+
+.status-indicator.running .dot {
+  background-color: #34d399;
+  box-shadow: 0 0 10px #34d399;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 16px 20px;
+}
+
+.card-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.input-with-button {
+  display: flex;
+  gap: 8px;
+}
+
+input[type="text"], input[type="number"] {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  outline: none;
+  transition: border 0.2s;
+  width: 100%;
+}
+
+input:focus {
+  border-color: var(--accent-primary);
+}
+
+.port-group {
+  width: 110px;
+}
+
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.muted {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Buttons */
+.btn {
+  border: 0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
+}
+
+.btn-danger {
+  background: #dc2626;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #b91c1c;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.btn-small {
+  padding: 4px 10px;
+  font-size: 11px;
+  border-radius: 6px;
+}
+
+.btn-icon {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+.btn-icon:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Pairing Card */
+.pairing-card {
+  border-color: var(--border-active);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(168, 85, 247, 0.08));
+}
+
+.pairing-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pairing-info h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.pairing-badge-container {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.code-box {
+  background: #000;
+  border: 1px solid var(--accent-primary);
+  border-radius: 10px;
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  padding: 6px 16px;
+  color: #a5b4fc;
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.25);
+}
+
+.code-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+}
+
+.timer-text {
+  font-size: 11px;
+  color: var(--accent-amber);
+}
+
+/* Activity Log */
+.log-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-header-row h3 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.table-container {
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.log-table th {
+  position: sticky;
+  top: 0;
+  background: #111827;
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.log-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.empty-row td {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 30px;
+}
+
+.status-tag {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-tag.ok {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.status-tag.error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+
+.tool-name {
+  font-family: ui-monospace, monospace;
+  font-weight: 600;
+  color: #cbd5e1;
+}

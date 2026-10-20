@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+packages/*/dist/
+
+# WebClaude runtime backups & temp files
+.webclaude-backups/
+*.webclaude-tmp-*
+*.webclaude-edit-tmp-*
+
+# Environment variables & credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pfx
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Test coverage & caches
+coverage/
+.nyc_output/
+.turbo/
+.cache/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini

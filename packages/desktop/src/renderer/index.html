@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebClaude Desktop</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo-badge">W</div>
+        <div class="brand-text">
+          <h1>WebClaude</h1>
+          <span class="subtitle">Local Code Agent Runtime</span>
+        </div>
+      </div>
+      <div class="status-indicator" id="status-pill">
+        <span class="dot"></span>
+        <span class="text" id="status-text">Stopped</span>
+      </div>
+    </header>
+
+    <!-- Workspace & Control Card -->
+    <section class="card config-card">
+      <div class="card-row">
+        <div class="form-group flex-1">
+          <label>Workspace Directory</label>
+          <div class="input-with-button">
+            <input type="text" id="workspace-input" placeholder="Select a project folder..." readonly />
+            <button class="btn btn-secondary" id="browse-btn">Browse...</button>
+          </div>
+        </div>
+        <div class="form-group port-group">
+          <label>Port</label>
+          <input type="number" id="port-input" value="43127" min="1024" max="65535" />
+        </div>
+      </div>
+
+      <div class="action-bar">
+        <button class="btn btn-primary" id="toggle-btn">Start Service</button>
+        <span class="muted" id="server-url-text">http://127.0.0.1:43127</span>
+      </div>
+    </section>
+
+    <!-- Pairing Code Card (Visible when running) -->
+    <section class="card pairing-card" id="pairing-card" style="display: none;">
+      <div class="pairing-content">
+        <div class="pairing-info">
+          <h3>Pairing Code for Extension</h3>
+          <p class="muted">Enter this code in your Chrome/Edge extension to grant Claude access.</p>
+        </div>
+        <div class="pairing-badge-container">
+          <div class="code-box" id="code-display">------</div>
+          <div class="code-meta">
+            <span class="timer-text" id="timer-display">Expires in 5m</span>
+            <button class="btn btn-icon" id="refresh-code-btn" title="Rotate code">↻</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Activity Log Card -->
+    <section class="card log-card flex-1">
+      <div class="card-header-row">
+        <h3>Live Activity Log</h3>
+        <button class="btn btn-small btn-secondary" id="clear-logs-btn">Clear</button>
+      </div>
+      <div class="table-container" id="logs-container">
+        <table class="log-table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Status</th>
+              <th>Tool</th>
+              <th>Target / Details</th>
+              <th>Duration</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="logs-body">
+            <tr class="empty-row">
+              <td colspan="6">No activity yet. Trigger tool calls via Claude Web.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

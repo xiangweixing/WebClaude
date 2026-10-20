@@ -1,0 +1,16 @@
+{
+  "name": "@webclaude/desktop",
+  "version": "0.2.0",
+  "main": "./dist/main.js",
+  "dependencies": {
+    "@webclaude/core": "*",
+    "@webclaude/protocol": "*"
+  },
+  "devDependencies": {
+    "electron": "^34.2.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "electron ."
+  }
+}
